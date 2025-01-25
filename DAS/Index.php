@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediSync - Doctor Appointment System</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .container {
+            width: 100%;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: whitesmoke;
+            font-size: 5rem;
+        }
+        p {
+            color: whitesmoke;
+            font-size: 1.2rem;
+        }
+        .btn {
+            font-size: 1.5rem;
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            text-decoration: none;
+            color: #fff;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 5);
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background-color: white;
+            color: #333;
+        }
+        .footer {
+            position: fixed;
+            bottom: 10px;
+            width: 95%;
+            text-align: center;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="home.php">Home</a>
+        <a href="login.php">Login</a>
+        <a href="register.php">Register</a>
+    </div>
+    <div class="container">
+        <h1>Welcome to MediSync</h1>
+        <p>We are committed to providing you with the best healthcare experience.<br> Stay healthy and book your appointments with ease.<br> Visit us again for more updates and services!</p>
+        
+        <div>
+            <a href="login.php" class="btn">Login</a>
+            <a href="register.php" class="btn">Register</a>
+        </div>
+    </div>
+    <div class="footer">
+        <p>&copy; 2021 MediSync. All rights reserved.</p>
+    </div>
+</body>
+</html>
