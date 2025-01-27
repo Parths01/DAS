@@ -63,7 +63,7 @@
     
         <a href="index.php">Home</a>
         <a href="About.php">About Us</a>
-        <a href="Doctors.php">Doctors/Specializations</a>
+        <a href="Doctors.php">Doctors</a>
         <a href="Appointment.php">Book Appointment</a>
         <a href="Contact.php">Contact Us</a>
         <a href="Login.php">Login/Sign Up</a>
@@ -71,51 +71,53 @@
     <div class="container">
         <h2>Book an Appointment</h2>
         <form action="Appointment.php" method="post">
-            <table>
-            <tr>
-                <td><label for="name">Name:</label></td>
-                <td><input type="text" id="name" name="name" required></td>
-            </tr>
-            <tr>
-                <td><label for="email">Email:</label></td>
-                <td><input type="email" id="email" name="email" required></td>
-            </tr>
-            <tr>
-                <td><label for="date">Date:</label></td>
-                <td><input type="date" id="date" name="date" required></td>
-            </tr>
-            <tr>
-                <td><label for="time">Time:</label></td>
-                <td><input type="time" id="time" name="time" required></td>
-            </tr>
-            <tr>
-                <td><label for="message">Message:</label></td>
-                <td><textarea id="message" name="message" rows="4" required></textarea></td>
-            </tr>
-            <tr>
-                <td colspan="2" style="text-align: center;"><button type="submit">Submit</button></td>
-            </tr>
+        <table>
+                <tr>
+                    <td><label for="name">Name:</label></td>
+                    <td><input type="text" id="name" name="name" required></td>
+                </tr>
+                <tr>
+                    <td><label for="email">Email:</label></td>
+                    <td><input type="email" id="email" name="email" required></td>
+                </tr>
+                <tr>
+                    <td><label for="date">Date:</label></td>
+                    <td><input type="date" id="date" name="date" required></td>
+                </tr>
+                <tr>
+                    <td><label for="time">Time:</label></td>
+                    <td><input type="time" id="time" name="time" required></td>
+                </tr>
+                <tr>
+                    <td><label for="message">Message:</label></td>
+                    <td><textarea id="message" name="message" rows="4" required></textarea></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;"><button type="submit">Submit</button></td>
+                </tr>
             </table>
         </form>
-    </div>
-
-    <?php
+        <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $name = htmlspecialchars($_POST['name']);
-        $email = htmlspecialchars($_POST['email']);
-        $date = htmlspecialchars($_POST['date']);
-        $time = htmlspecialchars($_POST['time']);
-        $message = htmlspecialchars($_POST['message']);
+        require 'db_connect.php'; // Include your database connection file
 
-        // Here you can add code to save the appointment details to a database or send an email
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $date = $_POST['date'];
+        $time = $_POST['time'];
+        $message = $_POST['message'];
 
-        echo "<div class='container'><h3>Appointment Details</h3>";
-        echo "<p>Name: $name</p>";
-        echo "<p>Email: $email</p>";
-        echo "<p>Date: $date</p>";
-        echo "<p>Time: $time</p>";
-        echo "<p>Message: $message</p></div>";
+        $sql = "INSERT INTO BookAppointment (patient_id, doctor_id, appointment_date, appointment_time, status)
+                VALUES (1, 1, '$date', '$time', 'Pending')";
+
+        if ($conn->query($sql) === TRUE) {
+            echo "<p style='color: green; text-align: center;'>New appointment booked successfully</p>";
+        } else {
+            echo "<p style='color: red; text-align: center;'>Error: " . $conn->error . "</p>";
+        }
+
+        $conn->close();
     }
     ?>
-</body>
+    </body>
 </html>

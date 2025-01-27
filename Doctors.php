@@ -49,7 +49,7 @@
     <div class="navbar">
         <a href="index.php">Home</a>
         <a href="About.php">About Us</a>
-        <a href="Doctors.php">Doctors/Specializations</a>
+        <a href="Doctors.php">Doctors</a>
         <a href="Appointment.php">Book Appointment</a>
         <a href="Contact.php">Contact Us</a>
         <a href="Login.php">Login/Sign Up</a>
